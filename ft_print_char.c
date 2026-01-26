@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 11:33:32 by usolak            #+#    #+#             */
-/*   Updated: 2026/01/26 14:14:16 by usolak           ###   ########.fr       */
+/*   Created: 2026/01/26 13:24:38 by usolak            #+#    #+#             */
+/*   Updated: 2026/01/26 14:14:55 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int	ft_printf(const char *, ...);
-int	ft_print_char(int c);
-int	ft_print_str(char *str);
-int	ft_print_int(int n);
-
-#endif
+int	ft_print_char(int c)
+{
+	return (write(1, &c, 1));
+}
