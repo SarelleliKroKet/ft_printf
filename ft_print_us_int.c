@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_us_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 11:33:32 by usolak            #+#    #+#             */
-/*   Updated: 2026/01/26 15:25:44 by usolak           ###   ########.fr       */
+/*   Created: 2026/01/26 15:18:57 by usolak            #+#    #+#             */
+/*   Updated: 2026/01/26 15:25:35 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int	ft_printf(const char *, ...);
-int	ft_print_char(int c);
-int	ft_print_str(char *str);
-int	ft_print_int(int n);
-int	ft_print_unsigned(unsigned int nb);
-
-#endif
+int	ft_print_unsigned(unsigned int nb)
+{
+	int		sum;
+	
+	sum = 0;
+	if (nb > 9)
+	{
+		sum += ft_print_unsigned(nb / 10);
+		sum += ft_print_unsigned(nb % 10);
+	}
+	else
+	{
+		sum += ft_print_char(nb + 48);
+	}
+	return (sum);
+}
