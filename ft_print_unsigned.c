@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_us_int.c                                  :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 15:18:57 by usolak            #+#    #+#             */
-/*   Updated: 2026/01/26 15:25:35 by usolak           ###   ########.fr       */
+/*   Updated: 2026/01/30 10:07:13 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_print_unsigned(unsigned int nb)
 {
 	int		sum;
-	
+
 	sum = 0;
 	if (nb > 9)
 	{

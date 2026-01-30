@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 13:59:26 by usolak            #+#    #+#             */
-/*   Updated: 2026/01/30 10:08:07 by usolak           ###   ########.fr       */
+/*   Created: 2026/01/30 10:04:44 by usolak            #+#    #+#             */
+/*   Updated: 2026/01/30 10:39:42 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_int(int n)
+int	ft_print_hex(unsigned int nb, char a)
 {
 	int		sum;
+	int		i;
+	char	*x;
+	char	*y;
+	char	format;
 
 	sum = 0;
-	if (n == -2147483648)
+	i = 0;
+	format = 'x';
+	x = "0123456789abcdef";
+	y = "0123456789ABCDEF";
+	if (nb < 15)
 	{
-		return (ft_print_str("-2147483648"));
-	}
-	if (n < 0)
-	{
-		sum += ft_print_char('-');
-		n = -n;
-	}
-	if (n > 9)
-	{
-		sum += ft_print_int(n / 10);
-		sum += ft_print_int(n % 10);
+		if (format == 'x')
+			sum += ft_print_char(x[i] % 16);
+		else
+			sum += ft_print_char(y[i] % 16);
 	}
 	else
 	{
-		sum += ft_print_char(n + 48);
+		(nb /= 16);
+		sum += ft_print_char(x[i] % 16);
 	}
 	return (sum);
 }
