@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 10:04:44 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/01 10:27:43 by usolak           ###   ########.fr       */
+/*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
+/*   Updated: 2026/02/01 10:25:43 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_print_hex(unsigned int nb, char a)
+# include <stdarg.h>
+static int sum(const char *s, ...)
 {
-	int		sum;
+	va_list akosaca;
+	va_start(akosaca, s);
 	int		i;
-	char	*x;
-	char	*y;
-	char	format;
-
-	sum = 0;
 	i = 0;
-	format = 'x';
-	x = "0123456789abcdef";
-	y = "0123456789ABCDEF";
-	if (nb < 15)
+	int yaycicek;
+	yaycicek = va_arg(akosaca, int);
+	while (s[i])
 	{
-		if (format == 'x')
-			sum += ft_print_char(x[i] % 16);
-		else
-			sum += ft_print_char(y[i] % 16);
+		if (s[i] == '+')
+		{
+			yaycicek += va_arg(akosaca, int);
+		}
+		else if (s[i] == '*')
+			yaycicek *= va_arg(akosaca, int);
+		i++;
 	}
-	else
-	{
-		(nb /= 16);
-		sum += ft_print_char(x[i] % 16);
-	}
-	i++;
-	return (sum);
+	va_end(akosaca);
+	return (yaycicek);
+}
+#include <stdio.h>
+
+int main()
+{
+	int val = sum("+*", 5, 5, 10);
+	printf("%d\n", val);
 }
