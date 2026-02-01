@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 13:24:38 by usolak            #+#    #+#             */
-/*   Updated: 2026/01/26 14:14:55 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/01 13:13:29 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(int c)
+int	ft_print_char(int n)
 {
-	return (write(1, &c, 1));
+	return (write(1, &n, 1));
 }
