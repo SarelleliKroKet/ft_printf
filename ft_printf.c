@@ -6,43 +6,48 @@
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/01 11:25:57 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/01 16:12:49 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	sum(const char *s, ...)
+static int	sum(const char *printable, ...)
 {
-	va_list	akosaca;
-	va_start (akosaca, s);
-
+	va_list	input;
+	va_start (input, int);
+	int		output;
 	int		i;
+	
 	i = 0;
-	int		yaycicek;
-	yaycicek = va_arg(akosaca, int);
-	while (s[i])
+	output = va_arg(input, int);
+	while (printable[i])
 	{
-		if (s[i] == '+')
-			yaycicek += va_arg(akosaca, int);
-		else if (s[i] == '*')
-			yaycicek *= va_arg(akosaca, int);
-		else if (s[i] == '-')
-			yaycicek -= va_arg(akosaca, int);
-		else if (s[i] == '/')
-			yaycicek /= va_arg(akosaca, int);
-		else if (s[i] == '%')
-			yaycicek %= va_arg(akosaca, int);
+		if (printable[i] == '%c')
+			output += va_arg(input, int);
+		else if (printable[i] == '%s')
+			output += va_arg(input, int);
+		else if (printable[i] == '%p')
+			output += va_arg(input, int);
+		else if (printable[i] == '%d')
+			output += va_arg(input, int);
+		else if (printable[i] == '%i')
+			output += va_arg(input, int);
+		else if (printable[i] == '%x')
+			output += va_arg(input, int);
+		else if (printable[i] == '%X')
+			output += va_arg(input, int);
+		else if (printable[i] == '%%')
+			output += va_arg(input, int);
 		i++;
 	}
-	va_end(akosaca);
-	return (yaycicek);
+	return (output);
 }
 
 #include <stdio.h>
 
 int	main()
 {
-	int val = sum("+*-/%%", 5, 5, 10, 5, 5, 15);
+	int val = sum("%cspdiuX%%", 'a', "yunus", "emre", 42, 69, 1234, 1234);
 	printf("%d\n", val);
 }
