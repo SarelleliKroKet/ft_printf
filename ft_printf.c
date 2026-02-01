@@ -6,7 +6,7 @@
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/01 10:25:43 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/01 10:47:53 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@ static int sum(const char *s, ...)
 	while (s[i])
 	{
 		if (s[i] == '+')
-		{
 			yaycicek += va_arg(akosaca, int);
-		}
 		else if (s[i] == '*')
 			yaycicek *= va_arg(akosaca, int);
+		else if (s[i] == '-')
+			yaycicek -= va_arg(akosaca, int);
+		else if (s[i] == '/')
+			yaycicek /= va_arg(akosaca, int);
+		else if (s[i] == '%')
+			yaycicek %= va_arg(akosaca, int);
 		i++;
 	}
 	va_end(akosaca);
@@ -36,6 +40,6 @@ static int sum(const char *s, ...)
 
 int main()
 {
-	int val = sum("+*", 5, 5, 10);
+	int val = sum("+*-/%%", 5, 5, 10, 5, 5, 15);
 	printf("%d\n", val);
 }
