@@ -6,7 +6,7 @@
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 10:04:44 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/01 11:15:45 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/01 11:22:02 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_print_hex(unsigned int nb, char small_x)
 	bigger = "0123456789ABCDEF";
 	if (nb <= 15)
 	{
-		if (small_x == 48)
+		if (small_x == 'x')
 			sum += ft_print_char(smaller[nb]);
 		else
 			sum += ft_print_char(bigger[nb]);
@@ -31,16 +31,10 @@ int	ft_print_hex(unsigned int nb, char small_x)
 	else
 	{
 		sum += ft_print_hex(nb / 16, small_x);
-		if (small_x == 48)
+		if (small_x == 'x')
 			sum += ft_print_char(smaller[nb % 16]);
 		else
 			sum += ft_print_char(bigger[nb % 16]);
 	}
 	return (sum);
-}
-
-#include <stdio.h>
-int main()
-{
-	printf("%x\n", ft_print_hex(1523, 49));
 }
