@@ -6,38 +6,35 @@
 /*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/02 21:24:11 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/02 21:55:10 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	case_control(char *a)
+static int	print_parameters(char *a, va_list printable)
 {
 	char *a = "cspdiuxX%%";
-}
-
-static int	print_parameters(char *a, va_list)
-{
-	if (a[0] == 'c')
-		return (ft_print_char(va_arg(printable, int n)));
-	else if (a[1] == 's')
-		return (ft_print_str(va_arg(printable, char *str)));
-	else if (a[2] == 'p')
-		return (ft_print_pointer(va_arg(printable, (void *pointer, char a))));
-	else if (a[3] == 'd' && a[4] == 'i')
-		return (ft_print_int(va_arg(printable, int n)));
-	else if (a[5] == 'u')
-		return (ft_print_unsigned(va_arg(printable, unsigned int nb)));
-	else if (a[6] == 'x' && a[7] == 'X')
-		return (ft_print_hex(va_arg(printable, (unsigned int nb, char small_x))));
-	else if (a[8] == '%')
+	if (a == 'c')
+		return (ft_print_char(va_arg(printable, int)));
+	else if (a == 's')
+		return (ft_print_str(va_arg(printable, char)));
+	else if (a == 'p')
+		return (ft_print_pointer(va_arg(printable, (void *, char))));
+	else if (a == 'd' && a == 'i')
+		return (ft_print_int(va_arg(printable, int)));
+	else if (a == 'u')
+		return (ft_print_unsigned(va_arg(printable, unsigned int)));
+	else if (a == 'x' && a == 'X')
+		return (ft_print_hex(va_arg(printable, (unsigned int, char))));
+	else if (a == '%')
 		return (ft_print_char('%'));
 }
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *project, ...)
 {
 	va_list	printable;
+	va_start (printable, project);
 
 }
 
