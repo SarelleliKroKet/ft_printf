@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 11:55:27 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/01 15:42:50 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/02 22:37:34 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_pointer(unsigned int nb, char a)
+int	ft_print_pointer(unsigned long nb)
 {
 	int		sum;
 
@@ -20,7 +20,7 @@ int	ft_print_pointer(unsigned int nb, char a)
 	if (!nb)
 		return (ft_print_str("(nil)"));
 	sum += ft_print_str("0x");
-	sum += ft_print_hex((nb % 16), 'x');
+	sum += ft_print_hex(nb, 'x');
 	return (sum);
 }
 
@@ -29,8 +29,8 @@ int	ft_print_pointer(unsigned int nb, char a)
 int main()
 {
 	int nb = 63523;
-
 	void *ptr = &nb;
 	printf("%p\n", ptr);
-	ft_print_pointer(nb, 'x');
+	ft_print_pointer(nb);
+	printf("\n");
 }
