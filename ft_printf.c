@@ -3,45 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/01 16:12:49 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/02 21:24:11 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	sum(const char *printable, ...)
+static int	case_control(char *a)
 {
-	va_list	input;
-	va_start (input, int);
-	int		output;
-	int		i;
-	
-	i = 0;
-	output = va_arg(input, int);
-	while (printable[i])
-	{
-		if (printable[i] == '%c')
-			output += va_arg(input, int);
-		else if (printable[i] == '%s')
-			output += va_arg(input, int);
-		else if (printable[i] == '%p')
-			output += va_arg(input, int);
-		else if (printable[i] == '%d')
-			output += va_arg(input, int);
-		else if (printable[i] == '%i')
-			output += va_arg(input, int);
-		else if (printable[i] == '%x')
-			output += va_arg(input, int);
-		else if (printable[i] == '%X')
-			output += va_arg(input, int);
-		else if (printable[i] == '%%')
-			output += va_arg(input, int);
-		i++;
-	}
-	return (output);
+	char *a = "cspdiuxX%%";
+}
+
+static int	print_parameters(char *a, va_list)
+{
+	if (a[0] == 'c')
+		return (ft_print_char(va_arg(printable, int n)));
+	else if (a[1] == 's')
+		return (ft_print_str(va_arg(printable, char *str)));
+	else if (a[2] == 'p')
+		return (ft_print_pointer(va_arg(printable, (void *pointer, char a))));
+	else if (a[3] == 'd' && a[4] == 'i')
+		return (ft_print_int(va_arg(printable, int n)));
+	else if (a[5] == 'u')
+		return (ft_print_unsigned(va_arg(printable, unsigned int nb)));
+	else if (a[6] == 'x' && a[7] == 'X')
+		return (ft_print_hex(va_arg(printable, (unsigned int nb, char small_x))));
+	else if (a[8] == '%')
+		return (ft_print_char('%'));
+}
+
+int	ft_printf(const char *, ...)
+{
+	va_list	printable;
+
 }
 
 #include <stdio.h>
