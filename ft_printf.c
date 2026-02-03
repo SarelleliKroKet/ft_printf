@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c.tmp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: usolak <usolak@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/02 22:54:30 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/03 14:22:50 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,20 @@ int	ft_printf(const char *project, ...)
 	
 	i = 0;
 	va_start (printable, project);
-	while (project)
+	while (project[i])
 	{
 		if (project[i] == '%')
 		{
-			
+			project[i++]
 		}
-		
+		i++;
 	}
+	va_end(print_parameters);
 }
 
-#include <stdio.h>
-int	main()
-{
-	int val = sum("%cspdiuX%%", 'a', "yunus", "emre", 42, 69, 1234, 1234);
-	printf("%d\n", val);
-}
+// #include <stdio.h>
+// int	main()
+// {
+// 	int val = sum("%c", "%s", "%p", "%d", "%i", "%u", "%x", "%X", "%%", 'c', "libft", 1234, 1234, 1234, 1234, 1234);
+// 	printf("%d\n", val);
+// }

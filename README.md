@@ -3,7 +3,9 @@ _This project has been created as part of the 42 curriculum by usolak_
 **Description**  
 This project aims the understand how variadic functions works and creating our own printf function.  
 
-**Instructions**
+**Instructions**  
+Project must be show the same behavior with the original printf function.  
+Evaluation page must be lead the test of project.  
 
 **Resources**  
 For variadic functions:  

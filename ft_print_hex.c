@@ -6,13 +6,13 @@
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 10:04:44 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/01 11:22:02 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/03 14:11:17 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_hex(unsigned int nb, char small_x)
+int	ft_print_hex(unsigned long nb, char small_x)
 {
 	int				sum;
 	char			*smaller;
