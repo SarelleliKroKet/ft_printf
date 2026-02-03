@@ -14,3 +14,4 @@ https://youtu.be/S-ak715zIIE?si=yyo3liv5_1-WCfGK.
 https://youtu.be/oDC208zvsdg?si=5HIRZntt5Ft6sZ65.  
 Using AI for explanation of variadic functions.  
 For exercise of variadic functions 42intra: akosaca  
+For explanation of handle a case 42intra: aalkiz  
