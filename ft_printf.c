@@ -6,7 +6,7 @@
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/03 18:10:09 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/04 16:31:33 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,4 @@ int	ft_printf(const char *project, ...)
 	}
 	va_end(printable);
 	return (sum);
-}
-
-int	main()
-{
-	int val = 42;
-	ft_printf("%c %s %p %d %i %u %x %X %%", 'c', "umut", &val, 42, 58, 1000, 15000, 19000);
-	printf("\n");
-	printf("%c %s %p %d %i %u %x %X %%", 'c', "umut", &val, 42, 58, 1000, 15000, 19000);
 }
