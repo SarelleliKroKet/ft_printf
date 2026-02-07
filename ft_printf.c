@@ -6,7 +6,7 @@
 /*   By: usolak <usolak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 10:14:01 by usolak            #+#    #+#             */
-/*   Updated: 2026/02/04 16:31:33 by usolak           ###   ########.fr       */
+/*   Updated: 2026/02/07 16:49:29 by usolak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static int	print_parameters(char a, va_list printable)
 		return (ft_print_hex(va_arg(printable, unsigned int), 'X'));
 	else if (a == '%')
 		return (ft_print_char('%'));
-	return (ft_print_char(a));
+	else
+		return (0);
 }
 
 int	ft_printf(const char *project, ...)
@@ -42,10 +43,14 @@ int	ft_printf(const char *project, ...)
 	i = 0;
 	sum = 0;
 	va_start (printable, project);
+	if (!project)
+		return (-1);
 	while (project[i])
 	{
-		if (project[i] == '%' && project[i + 1])
+		if (project[i] == '%')
 		{
+			if (project[i + 1] == '\0')
+				return (-1);
 			sum += (print_parameters(project[i + 1], printable));
 			i++;
 		}
